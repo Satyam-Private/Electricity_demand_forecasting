@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Energy Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='analyze.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Demand Analysis</h1>
+
+        <div class="summary">
+            <h3>Peak Demand</h3>
+           
+            <p><strong>Time:</strong> {{ data.peak_time }}</p>
+            <p><strong>Demand:</strong> {{ data.peak_demand }} MW</p>
+            
+
+        </div>
+
+        <div class="chart-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        
+        const data = {{ data| tojson }};
+        // Line Chart: Demand vs Solar
+        const ctx1 = document.getElementById('lineChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: data.dates,
+                datasets: [
+                    {
+                        label: 'Daily Demand (MW)',
+                        data: data.daily_demand,
+                        borderColor: 'blue',
+                        fill: false
+                    },
+                    {
+                        label: 'Daily Solar Generation (MW)',
+                        data: data.daily_solar,
+                        borderColor: 'orange',
+                        fill: false
+                    }
+                ]
+            }
+        });
+
+        // Bar Chart: Solar Coverage
+        const ctx2 = document.getElementById('barChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: data.dates,
+                datasets: [{
+                    label: 'Solar Coverage (%)',
+                    data: data.solar_coverage,
+                    backgroundColor: 'green'
+                }]
+            }
+        });
+
+        // Pie Chart: Average Solar vs Grid
+        const avgSolar = data.daily_solar.reduce((a,b) => a+b, 0);
+        const avgDemand = data.daily_demand.reduce((a,b) => a+b, 0);
+        const avgGrid = avgDemand - avgSolar;
+
+        const ctx3 = document.getElementById('pieChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Solar Energy', 'Grid Energy'],
+                datasets: [{
+                    data: [avgSolar, avgGrid],
+                    backgroundColor: ['yellow', 'gray']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

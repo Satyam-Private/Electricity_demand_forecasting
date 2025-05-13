@@ -1,0 +1,143 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #0c1c2c;
+    color: #f0f8ff;
+}
+
+.container {
+    max-width: 600px;
+    margin: 100px auto 40px;
+    background-color: #162c44;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+h1, h3 {
+    color: #00bfff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    padding: 8px;
+    background: #0e2941;
+    color: #fff;
+    border: 1px solid #0077cc;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #00bfff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0099cc;
+}
+
+.navbar {
+    background-color: #001f3f;
+    padding: 15px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 191, 255, 0.2);
+}
+
+.navbar-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00bfff;
+}
+
+.navbar-links .nav-btn {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #f0f8ff;
+    background: #003366;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.navbar-links .nav-btn:hover {
+    background: #005b96;
+}
+
+/* Header & Landing Page Styling */
+.landing-header {
+    margin-top: 80px;
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #0c1c2c, #142f47);
+    color: #ffffff;
+}
+
+.landing-header h1 {
+    font-size: 3em;
+    color: #00bfff;
+    margin-bottom: 10px;
+}
+
+.landing-header p {
+    font-size: 1.2em;
+    color: #d0eaff;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    background-color: #00bfff;
+    color: #fff;
+    font-size: 1em;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.hero-btn:hover {
+    background-color: #0099cc;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 30px;
+    background-color: #0e2235;
+    color: #e6f7ff;
+}
+
+.feature {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #162c44;
+    border-left: 6px solid #00bfff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.1);
+}
+
+.feature h2 {
+    color: #00bfff;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #001f3f;
+    color: #a5cde8;
+}
+

@@ -1,0 +1,99 @@
+/* General Reset and Layout */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0e2235;
+    color: #e6f7ff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #162c44;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+}
+
+h1 {
+    color: #00bfff;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Chart Section */
+.chart-container {
+    margin: 30px 0;
+}
+
+canvas {
+    background-color: #1b3a57;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Forecast Table */
+.forecast-table {
+    margin-top: 30px;
+}
+
+.forecast-table h3 {
+    color: #00bfff;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1b3a57;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #00bfff;
+}
+
+thead th {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 8px;
+}
+
+tbody td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #2d4e73;
+    color: #c7e9ff;
+}
+
+tbody tr:hover {
+    background-color: #22384f;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #00bfff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 15px 10px 0 0;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0099cc;
+}
+
+.back-btn {
+    background-color: #005f80;
+}
+
+.back-btn:hover {
+    background-color: #004766;
+}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Energy Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='analyze.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Energy Demand Dataset</h1>
+        <form method="POST" action="{{ url_for('analyze') }}" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit" class="btn">Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

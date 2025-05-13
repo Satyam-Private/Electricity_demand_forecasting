@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Demand Forecasting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo">⚡ PowerPredict</div>
+        <div class="navbar-links">
+            <a href="/index" class="nav-btn">Forecast</a>
+            <a href="/analyze" class="nav-btn">Analyze</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Energy Demand Forecasting</h1>
+        <p>Upload your energy demand data (CSV format) to forecast future demand.</p>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Select CSV File:</label>
+                <input type="file" id="file" name="file" accept=".csv" required>
+            </div>
+            <button type="submit" class="btn">Upload and Train Model</button>
+        </form>
+        
+        <div class="info">
+            <h3>About the Forecasting</h3>
+            <p>This application uses an LSTM neural network to predict future energy demand based on historical data.</p>
+            <p>The model will analyze patterns in your data and provide forecasts for the next 24, 48, or 72 hours.</p>
+        </div>
+    </div>
+</body>
+</html>

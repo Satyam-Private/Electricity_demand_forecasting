@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='results.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Demand Forecast (Next {{ hours }} Hours)</h1>
+        
+        <div class="chart-container">
+            <canvas id="forecastChart"></canvas>
+        </div>
+        
+        <div class="forecast-table">
+            <h3>Forecast Values</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Demand (MW)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in forecast %}
+                    <tr>
+                        <td>{{ item.Datetime }}</td>
+                        <td>{{ "%.2f"|format(item.AEP_MW) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <a href="{{ url_for('forecast') }}" class="btn">Make Another Forecast</a>
+        <a href="{{ url_for('index') }}" class="btn back-btn">Back to Upload</a>
+    </div>
+    
+    <script>
+        // Prepare data for the chart
+        const history = {{ history|tojson }};
+        const forecast = {{ forecast|tojson }};
+        
+        // Combine history and forecast data
+        const labels = [
+            ...history.map(item => new Date(item.Datetime).toLocaleString()),
+            ...forecast.map(item => new Date(item.Datetime).toLocaleString())
+        ];
+        
+        const data = [
+            ...history.map(item => item.AEP_MW),
+            ...forecast.map(item => item.AEP_MW)
+        ];
+        
+        // Find the index where forecast starts
+        const forecastStartIndex = history.length;
+        
+        // Create the chart
+        const ctx = document.getElementById('forecastChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Energy Demand (MW)',
+                    data: data,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1,
+                    pointRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Energy Demand (MW)'
+                        }
+                    }
+                },
+                plugins: {
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                yMin: 0,
+                                yMax: 0,
+                                xMin: forecastStartIndex,
+                                xMax: forecastStartIndex,
+                                borderColor: 'rgb(255, 99, 132)',
+                                borderWidth: 2,
+                                label: {
+                                    content: 'Forecast Start',
+                                    enabled: true,
+                                    position: 'top'
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

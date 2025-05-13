@@ -1,0 +1,87 @@
+/* General Reset and Layout */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0e2235;
+    color: #e6f7ff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #162c44;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: #00bfff;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 30px;
+    color: #c7e9ff;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #b3dbf7;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1b3a57;
+    color: #e6f7ff;
+    font-size: 1em;
+}
+
+select:focus {
+    outline: none;
+    background-color: #224b6c;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #00bfff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1em;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #0099cc;
+}
+
+.back-btn {
+    background-color: #005f80;
+}
+
+.back-btn:hover {
+    background-color: #004766;
+}

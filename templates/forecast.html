@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast Energy Demand</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='forecast.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Forecast Energy Demand</h1>
+        <p>Model trained successfully. Select forecast duration:</p>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="hours">Select Forecast Duration:</label>
+                <select id="hours" name="hours" required>
+                    <option value="24">24 hours</option>
+                    <option value="48">48 hours</option>
+                    <option value="72">72 hours</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Generate Forecast</button>
+        </form>
+        
+        <a href="{{ url_for('index') }}" class="btn back-btn">Back to Upload</a>
+    </div>
+</body>
+</html>

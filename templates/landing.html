@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerPredict - Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style1.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">⚡ PowerPredict</div>
+        <div class="navbar-links">
+            <a href="/" class="nav-btn">Home</a>
+            <a href="/index" class="nav-btn">Forecast</a>
+            <a href="/analyze-upload" class="nav-btn">Analyze</a>
+        </div>
+    </nav>
+
+    <header class="landing-header">
+        <h1>Welcome to PowerPredict</h1>
+        <p>Your AI-powered solution for accurate energy demand forecasting using deep learning.</p>
+        <a href="/index" class="btn hero-btn">Get Started</a>
+    </header>
+
+    <section class="features">
+        <div class="feature">
+            <h2>🔍 About the Model</h2>
+            <p>
+                PowerPredict uses a Long Short-Term Memory (LSTM) neural network trained on historical electricity demand and solar generation data.
+                It learns complex temporal patterns and delivers high-accuracy demand forecasts for the next 24 to 72 hours.
+            </p>
+        </div>
+        <div class="feature">
+            <h2>📊 Forecasting Options</h2>
+            <p>
+                Choose between 24, 48, or 72-hour forecasts. Upload your hourly data in CSV format and receive instant predictions.
+            </p>
+        </div>
+        <div class="feature">
+            <h2>⚙️ Custom Analysis</h2>
+            <p>
+                Use the Analyze feature to visualize trends, peak loads, and solar generation performance from your dataset.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 PowerPredict. All rights reserved.</p>
+    </footer>
+</body>
+</html>
